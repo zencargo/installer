@@ -25,7 +25,6 @@ webhooks:
         namespace: {{ .Release.Namespace }}
         path: "/inject"
       {{- end }}
-      caBundle: ""
     sideEffects: None
     rules:
       - operations: [ "CREATE" ]
