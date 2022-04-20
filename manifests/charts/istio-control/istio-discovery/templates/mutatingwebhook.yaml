@@ -19,7 +19,6 @@ webhooks:
         name: istiod{{- if not (eq .Values.revision "") }}-{{ .Values.revision }}{{- end }}
         namespace: {{ .Release.Namespace }}
         path: "/inject"
-      caBundle: ""
     sideEffects: None
     rules:
       - operations: [ "CREATE" ]
