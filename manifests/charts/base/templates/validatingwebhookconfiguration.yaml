@@ -7,6 +7,8 @@ metadata:
     app: istiod
     release: {{ .Release.Name }}
     istio: istiod
+  annotations:
+    kustomize.toolkit.fluxcd.io/reconcile: disabled
 webhooks:
   - name: validation.istio.io
     clientConfig:
@@ -18,7 +20,6 @@ webhooks:
         namespace: {{ .Values.global.istioNamespace }}
         path: "/validate"
       {{- end }}
-      caBundle: "" # patched at runtime when the webhook is ready.
     rules:
       - operations:
         - CREATE
